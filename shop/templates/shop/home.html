@@ -1,0 +1,341 @@
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <title>YUVAN COOLING CENTER</title>
+  </head>
+  
+  <body class="p-3 m-0 border-0 bd-example m-0 border-0">
+    <!-- Example Code Start-->
+    {% load static %}
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+
+    <!-- Brand -->
+    <h3 class="navbar-brand fw-bold">YUVAN COOLING CENTER</h3>
+
+    <!-- Hamburger Icon (Right Side Always) -->
+    <button class="navbar-toggler ms-auto"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar Content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'about' %}">About</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'ram' %}">Electrician</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle"
+             href="#"
+             role="button"
+             data-bs-toggle="dropdown">
+            Products
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Split Non Inverter AC</a></li>
+            <a class="dropdown-item" href="#Window">Window AC</a>
+            <li><a class="dropdown-item" href="#">Split Inverter AC</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      
+
+    </div>
+  </div>
+</nav>
+
+
+
+<div class="container mt-4">
+  <div class="row g-4">
+
+    <div class="col-lg-3 col-md-6 col-sm-12">
+  <div class="card shadow-sm product-card">
+
+    <!-- Image -->
+    <div class="position-relative" id="Window">
+      <img src="{% static 'shop/po2.png' %}"
+           class="card-img-top"
+           style="height:240px; object-fit:cover;"
+           alt="Product image">
+
+      
+    </div>
+
+    <div class="card-body p-3">
+
+      <!-- Description -->
+      <p class="card-text text-muted mb-1 small" name="num">
+       
+        <b>Window Ac service</b> 
+      <p class="card-text text-muted mb-1 small">
+        
+        <b>Note:</b> Includes high-pressure water cleaning of cooling coils, filter wash, and a full electrical safety check
+      </p>
+
+      <!-- Contact -->
+      <p class="mb-1 small">
+        <strong>Sanjay Gupta</strong><br>
+        Contact: 8286489848
+      </p>
+
+      <!-- Rating + Price + Payment -->
+      <div class="d-flex justify-content-between align-items-center mb-2">
+
+        <!-- Rating -->
+        <div class="text-warning small">
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-half"></i>
+          <span class="text-muted">(4.5)</span>
+        </div>
+
+        <!-- Price + Payment -->
+        <div class="text-end">
+          <div class="fw-bold text-success">₹499 <del class="text-muted small">₹799</del></div>
+          <div class="d-flex justify-content-end gap-2 fs-6">
+            <i class="bi bi-credit-card text-primary"></i>
+            <i class="bi bi-phone text-success"></i>
+            <i class="bi bi-cash-coin text-warning"></i>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Buttons -->
+      <div class="d-flex gap-2">
+        <a href="{% url 'order' %}" class="btn btn-primary btn-sm w-100">Window ac</a>
+      
+        </a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+    <!-- CARD 2 -->
+    <div class="col-lg-3 col-md-6 col-sm-12">
+  <div class="card shadow-sm product-card">
+
+    <!-- Image -->
+    <div class="position-relative">
+      <img src="{% static 'shop/po22.png' %}"
+           class="card-img-top"
+           style="height:240px; object-fit:cover;"
+           alt="Product image">
+
+            
+        <br>  
+        <br>      
+                     
+      
+    </div>
+
+    <div class="card-body p-3">
+
+      <!-- Description -->
+      <p class="card-text text-muted mb-1 small">
+        <b>normal:</b>"Comprehensive filter cleaning "
+      </p>
+        <p class="card-text text-muted mb-1 small">
+        <b>jet:</b>"Deep pressure-wash cleaning for indoor and outdoor units to ensure maximum cooling and hygiene."
+      </p>
+        <p class="card-text text-muted mb-1 small">
+        <b>brekdown:</b>"Expert troubleshooting and fast repairs for non-functional units to restore your comfort quickly." "
+      </p>
+        
+
+      <!-- Contact -->
+      
+
+      <!-- Rating + Price + Payment -->
+      
+
+      
+
+      <!-- Buttons -->
+        <div class="d-flex gap-2">
+        <a href="{% url 'service' %}" class="btn btn-primary btn-sm w-100">Service</a>
+      
+        </a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+    <!-- CARD 3 -->
+    <div class="col-lg-3 col-md-6 col-sm-12">
+  <div class="card shadow-sm product-card">
+
+    <!-- Image -->
+    <div class="position-relative">
+      <img src="{% static 'shop/po7.png' %}"
+           class="card-img-top"
+           style="height:240px; object-fit:cover;"
+           alt="Product image">
+
+     
+    </div>
+
+    <div class="card-body p-3">
+
+      <!-- Description -->
+      <p class="card-text text-muted mb-1 small">
+      <b>  Gas Top-Up:</b>
+Gas top-up is done when the AC has low refrigerant due to minor loss, restoring cooling without completely emptying the system.
+      </p>
+       <p class="card-text text-muted mb-1 small">
+      <b>  Gas Top-Up:</b>
+Full gas filling includes removing old gas, fixing leakage if any, and refilling the complete refrigerant for both indoor and outdoor units  cooling efficiency.
+      </p>
+
+
+      <!-- Contact -->
+      
+
+      <!-- Rating + Price + Payment -->
+      <div class="d-flex justify-content-between align-items-center mb-2">
+
+    
+
+        <!-- Price + Payment -->
+       
+
+      </div>
+
+      <!-- Buttons -->
+         <div class="d-flex gap-2">
+        <a href="{% url 'gas' %}" class="btn btn-primary btn-sm w-100">view fuel</a>
+      
+        </a>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!--car 4-->
+<div class="col-lg-3 col-md-6 col-sm-12">
+  <div class="card shadow-sm product-card">
+
+    <!-- Image -->
+    <div class="position-relative">
+      <img src="{% static 'shop/po4.png' %}"
+           class="card-img-top"
+           style="height:240px; object-fit:cover;"
+           alt="Product image">
+
+    </div>
+
+    <div class="card-body p-3">
+
+      <!-- Description -->
+      <p class="card-text text-muted mb-1 small">
+       <b> AC Installation</b>
+
+Expert AC installation service ensuring correct placement, secure mounting, proper wiring, and efficient 
+cooling performance. 
+        </p>
+<p class="card-text text-muted mb-1 small">
+ <b> 🔧 AC Uninstallation</b>
+
+
+
+Safe and careful AC uninstallation service including gas recovery, electrical disconnection, and unit removal without damage.  relocation,
+
+  
+
+        </p>
+        
+
+      <!-- Contact -->
+     
+
+      <!-- Rating + Price + Payment -->
+    
+
+     
+
+      <!-- Buttons -->
+        <div class="d-flex gap-2">
+        <a href="{% url 'repair' %}" class="btn btn-primary btn-sm w-100"> view repairing</a>
+      
+        </a>
+      </div>
+
+    </div>
+  </div>
+</div>
+</div>
+
+ 
+<footer class="bg-dark text-light pt-4 mt-5">
+  <div class="container">
+    <div class="row">
+
+      <!-- About AC -->
+      <div class="col-lg-4 col-md-6 mb-3">
+        <h5 class="text-white">About AC</h5>
+        <p class="text-secondary">
+          Air conditioners help control temperature, humidity, and improve indoor comfort.
+        </p>
+      </div>
+
+      <!-- Types of AC -->
+      <div class="col-lg-4 col-md-6 mb-3">
+        <h5 class="text-white">Types of AC</h5>
+        <ul class="list-unstyled text-secondary">
+          <li>Split AC</li>
+          <li>Window AC</li>
+          <li>Inverter AC</li>
+          <li>Portable AC</li>
+        </ul>
+      </div>
+
+      <!-- Personal Info -->
+      <div class="col-lg-4 col-md-12 mb-3">
+        <h5 class="text-white">Contact</h5>
+        <p class="text-secondary mb-1">Name: Sanjay Gupta</p>
+        <p class="text-secondary mb-1">Location: Mumbai, India</p>
+        <p class="text-secondary mb-1">Email: sanjay@example.com</p>
+      </div>
+
+    </div>
+
+    <!-- Bottom line -->
+    <div class="text-center border-top border-secondary pt-3 mt-3">
+      <small class="text-secondary">
+        © 2026 Sanjay Gupta | All Rights Reserved
+      </small>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>

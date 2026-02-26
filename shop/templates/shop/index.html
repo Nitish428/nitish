@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Welcome</title>
+
+<style>
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+/* BACKGROUND */
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #100c0c, #6610f2);
+  overflow: hidden;
+}
+
+/* FLOATING BACKGROUND CIRCLES */
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  animation: float 8s infinite ease-in-out;
+}
+.circle.one {
+  width: 300px;
+  height: 300px;
+  background: #ffffff33;
+  top: 10%;
+  left: 15%;
+}
+.circle.two {
+  width: 250px;
+  height: 250px;
+  background: #ffffff22;
+  bottom: 15%;
+  right: 10%;
+  animation-delay: 3s;
+}
+
+/* CARD */
+.card {
+  position: relative;
+  width: 380px;
+  padding: 45px 35px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  border-radius: 16px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  animation: popIn 1.2s ease forwards;
+}
+
+/* TITLE */
+.card h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+  animation: fadeDown 1s ease forwards;
+}
+
+.card p {
+  font-size: 14px;
+  opacity: 0.9;
+  margin-bottom: 30px;
+  animation: fadeDown 1.4s ease forwards;
+}
+
+/* BUTTONS */
+.btn-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.btn {
+  flex: 1;
+  padding: 12px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all 0.4s ease;
+}
+
+/* REGISTER BUTTON */
+.btn-register {
+  background: #fff;
+  color: #0d6efd;
+}
+.btn-register:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(255,255,255,0.3);
+}
+
+/* LOGIN BUTTON */
+.btn-login {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+}
+.btn-login:hover {
+  background: #fff;
+  color: #0d6efd;
+  transform: translateY(-4px);
+}
+
+/* ANIMATIONS */
+@keyframes popIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeDown {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-40px); }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Floating background -->
+<div class="circle one"></div>
+<div class="circle two"></div>
+
+<!-- Welcome Card -->
+<div class="card">
+  <h1>Welcome 👋</h1>
+  <p>If you are already registered, please log in.</p>
+
+  <div class="btn-group">
+    <a href="{% url 'ragister' %}">
+      <button class="btn btn-register">Register</button>
+    </a>
+
+    <a href="{% url 'login' %}">
+      <button class="btn btn-login">Login</button>
+    </a>
+  </div>
+</div>
+
+</body>
+</html>

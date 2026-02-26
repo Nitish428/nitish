@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professional Order Form</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(-45deg, #0d6efd, #6f42c1, #198754, #fd7e14);
+      background-size: 400% 400%;
+      animation: gradientBG 12s ease infinite;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .order-form-container {
+      width: 100%;
+      max-width: 500px;
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .form-control {
+      margin-bottom: 15px;
+    }
+
+    #orderMsg {
+      display: none;
+      color: green;
+      text-align: center;
+      margin-top: 15px;
+      font-weight: 500;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="order-form-container">
+  <h3 class="text-center mb-4">Place Your Order</h3>
+
+  <!-- ✅ NO action / method (AJAX handles it) -->
+  <form id="orderForm">
+    {% csrf_token %}
+
+    <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+
+    <input type="text" name="phone" class="form-control" placeholder="Phone Number" required>
+
+    <input type="email" name="email" class="form-control" placeholder="Email">
+
+    <textarea name="notes" class="form-control" placeholder="Address / Notes" rows="3"></textarea>
+
+    <button type="submit" class="btn btn-primary w-100">
+      Send Order
+    </button>
+    <select name="service" class="form-control" required>
+  <option value="">-- Select Service --</option>
+  <option value="Window AC Service">Window AC Service</option>
+  <option value="Split AC Service">Split AC Service</option>
+  <option value="AC Installation">AC Installation</option>
+  <option value="AC Uninstallation">AC Uninstallation</option>
+  <option value="Gas Refilling">Gas Refilling</option>
+</select>
+
+    <div id="orderMsg">
+      ✅ Order placed successfully!
+    </div>
+  </form>
+</div>
+
+<!-- ✅ JAVASCRIPT (BOTTOM OF PAGE) -->
+<script>
+const form = document.getElementById("orderForm");
+const button = form.querySelector("button");
+
+let isSubmitting = false;
+
+form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (isSubmitting) return;
+
+    isSubmitting = true;
+    button.disabled = true;
+    button.innerText = "Placing Order...";
+
+    const formData = new FormData(form);
+
+    fetch("{% url 'send_order_whatsapp' %}", {
+        method: "POST",
+        headers: {
+            "X-CSRFToken": document.querySelector('[name=csrfmiddlewaretoken]').value
+        },
+        body: formData
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.status === "success") {
+
+            document.getElementById("orderMsg").innerText =
+                "✅ Order placed successfully! Redirecting...";
+            document.getElementById("orderMsg").style.display = "block";
+
+            // Open WhatsApp once
+            window.open(data.whatsapp_url, "_blank");
+
+            form.reset();
+
+            // ✅ Redirect to website after 4 seconds
+            setTimeout(() => {
+                window.location.href = "/";   // or /thank-you/
+            }, 4000);
+        }
+    })
+    .catch(() => alert("Something went wrong"))
+    .finally(() => {
+        setTimeout(() => {
+            isSubmitting = false;
+            button.disabled = false;
+            button.innerText = "Send Order";
+        }, 3000);
+    });
+});
+</script>
+</body>
+</html>

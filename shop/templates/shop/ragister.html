@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Create Account</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* ===== Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* ===== Background ===== */
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, #11998e, #3b4840);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== Card ===== */
+.register-card {
+  width: 420px;
+  padding: 35px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(16px);
+  border-radius: 18px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+  animation: fadeSlide 1s ease;
+}
+
+/* ===== Title ===== */
+.register-card h2 {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.register-card p.sub-text {
+  text-align: center;
+  color: #eaeaea;
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+/* ===== Input Group ===== */
+.input-group {
+  position: relative;
+  margin-bottom: 22px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 10px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #ddd;
+  outline: none;
+  font-size: 16px;
+  color: #fff;
+}
+
+.input-group label {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ccc;
+  font-size: 14px;
+  pointer-events: none;
+  transition: 0.3s ease;
+}
+
+.input-group input:focus + label,
+.input-group input:valid + label {
+  top: -6px;
+  font-size: 12px;
+  color: #00ffd5;
+}
+
+.input-group input:focus {
+  border-color: #00ffd5;
+}
+
+/* ===== Button ===== */
+button {
+  width: 100%;
+  padding: 13px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #746094, #00c853);
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.4s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(13, 29, 149, 0.35);
+}
+
+/* ===== Message ===== */
+.message {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 14px;
+  color: #ffdddd;
+}
+
+/* ===== Footer ===== */
+.footer-text {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #eee;
+}
+
+.footer-text a {
+  color: #00ffd5;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* ===== Animation ===== */
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<form class="register-card" method="POST">
+  {% csrf_token %}
+
+  <h2>Create Account</h2>
+  <p class="sub-text">Join us and start your journey</p>
+
+  {% if message %}
+    <div class="message">{{ message }}</div>
+  {% endif %}
+
+  <div class="input-group">
+    <input type="text" name="name" required>
+    <label>Full Name</label>
+  </div>
+
+  <div class="input-group">
+    <input type="email" name="email" required>
+    <label>Email Address</label>
+  </div>
+
+  <div class="input-group">
+    <input type="password" name="password" required>
+    <label>Password</label>
+  </div>
+
+  <div class="input-group">
+    <input type="password" name="confirm" required>
+    <label>Confirm Password</label>
+  </div>
+
+ <button type="submit">Register</button>
+
+  <div class="footer-text">
+    Already registered? <a href="{% url 'login' %}">Login</a>
+  </div>
+
+</form>
+
+</body>
+</html>

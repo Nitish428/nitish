@@ -1,0 +1,326 @@
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <title>YUVAN COOLING CENTER</title>
+    <style>
+/* ===== Page Load Animation ===== */
+body {
+  animation: fadeBody 0.8s ease-in;
+}
+
+@keyframes fadeBody {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ===== Navbar Slide ===== */
+.navbar {
+  animation: slideDown 0.8s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Cards Animation ===== */
+.product-card {
+  opacity: 0;
+  transform: scale(0.95);
+  animation: cardFade 0.8s ease forwards;
+}
+
+.product-card:nth-child(1) { animation-delay: 0.2s; }
+.product-card:nth-child(2) { animation-delay: 0.4s; }
+.product-card:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes cardFade {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ===== Hover Effect (Bonus) ===== */
+.product-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  transition: 0.3s ease;
+}
+
+/* ===== Footer Animation ===== */
+footer {
+  animation: fadeUp 1s ease;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
+  </head>
+   {% load static %}
+  <body class="p-3 m-0 border-0 bd-example m-0 border-0">
+    <!-- Example Code Start-->
+   
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+
+    <!-- Brand with spacing -->
+    <a class="navbar-brand me-5 fw-bold" href="#">
+      YUVAN COOLING CENTER
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+       
+          <li class="nav-item">
+  <a class="nav-link" href="{% url 'index' %}">Home</a>
+</li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'about' %}">About</a>
+        </li>
+        
+
+  
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle"
+     href="#"
+     role="button"
+     data-bs-toggle="dropdown"
+     aria-expanded="false">
+   service
+    
+  </a>
+
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="#">TopUp</a></li>
+    <li><a class="dropdown-item" href="#">full Fuel</a></li>
+    
+  </ul>
+</li>
+
+      </ul>
+         <li class="nav-item">
+          <a class="nav-link" href="#">Services</a>
+        </li>
+
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search">
+        <button class="btn btn-outline-success">Search</button>
+      </form>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="container mt-4">
+  <div class="row g-4 align-items-stretch">
+
+    <!-- COLUMN 1 -->
+    <div class="col-md-6 col-sm-12 d-flex">
+      <div class="card w-100 h-100">
+
+        <div class="position-relative">
+          <img src="{% static 'shop/po14.png' %}"
+               class="card-img-top"
+               style="height:240px; object-fit:cover;"
+               alt="Product image">
+        </div>
+
+        <div class="card-body p-3 d-flex flex-column">
+
+          <p class="card-text text-muted mb-1 small">
+            <b> TopUp Fuel</b>
+          </p>
+
+          <p class="card-text text-muted mb-2 small">
+            AC gas (fuel) refilling is done only after checking and repairing any leakage to ensure safe and long-lasting cooling performance..
+          </p>
+
+          <p class="mb-2 small">
+            <strong>Sanjay Gupta</strong><br>
+            Contact: 8286489848
+          </p>
+
+          <!-- Push bottom content down -->
+          <div class="mt-auto">
+
+            <div class="d-flex justify-content-between align-items-center mb-2">
+
+              <div class="text-warning small">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-half"></i>
+                <span class="text-muted">(4.5)</span>
+              </div>
+
+              <div class="text-end">
+                <div class="fw-bold text-success">
+                  ₹1799 <del class="text-muted small">₹1999</del>
+                </div>
+                <div class="d-flex justify-content-end gap-2 fs-6">
+                  <i class="bi bi-credit-card text-primary"></i>
+                  <i class="bi bi-phone text-success"></i>
+                  <i class="bi bi-cash-coin text-warning"></i>
+                </div>
+              </div>
+
+            </div>
+
+            <a href="{% url 'order' %}" class="btn btn-primary btn-sm w-100">
+              Order Now
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- COLUMN 2 (duplicate same structure) -->
+    <div class="col-md-6 col-sm-12 d-flex">
+      <div class="card w-100 h-100">
+        <!-- same content here -->
+         
+        <div class="position-relative">
+          <img src="{% static 'shop/po13.png' %}"
+               class="card-img-top"
+               style="height:240px; object-fit:cover;"
+               alt="Product image">
+        </div>
+
+        <div class="card-body p-3 d-flex flex-column">
+
+          <p class="card-text text-muted mb-1 small">
+            <b>Full fuel</b>
+          </p>
+
+          <p class="card-text text-muted mb-2 small">
+           Complete AC gas refilling includes full gas charging for both indoor and outdoor units after proper leakage checking to ensure efficient and reliable cooling.
+          </p>
+
+          <p class="mb-2 small">
+            <strong>Sanjay Gupta</strong><br>
+            Contact: 8286489848
+          </p>
+
+          <!-- Push bottom content down -->
+          <div class="mt-auto">
+
+            <div class="d-flex justify-content-between align-items-center mb-2">
+
+              <div class="text-warning small">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-half"></i>
+                <span class="text-muted">(4.5)</span>
+              </div>
+
+              <div class="text-end">
+                <div class="fw-bold text-success">
+                  ₹2999 <del class="text-muted small">₹3199</del>
+                </div>
+                <div class="d-flex justify-content-end gap-2 fs-6">
+                  <i class="bi bi-credit-card text-primary"></i>
+                  <i class="bi bi-phone text-success"></i>
+                  <i class="bi bi-cash-coin text-warning"></i>
+                </div>
+              </div>
+
+            </div>
+
+            <a href="{% url 'order' %}" class="btn btn-primary btn-sm w-100">
+              Order Now
+            </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="bg-dark text-light pt-4 mt-5">
+  <div class="container">
+    <div class="row">
+
+      <!-- About AC -->
+      <div class="col-lg-4 col-md-6 mb-3">
+        <h5 class="text-white">About AC</h5>
+        <p class="text-secondary">
+          Air conditioners help control temperature, humidity, and improve indoor comfort.
+        </p>
+      </div>
+
+      <!-- Types of AC -->
+      <div class="col-lg-4 col-md-6 mb-3">
+        <h5 class="text-white">Types of AC</h5>
+        <ul class="list-unstyled text-secondary">
+          <li>repair</li>
+          <li>patti wiring</li>
+          <li>conceled wiring</li>
+         
+        </ul>
+      </div>
+
+      <!-- Personal Info -->
+      <div class="col-lg-4 col-md-12 mb-3">
+        <h5 class="text-white">Contact</h5>
+        <p class="text-secondary mb-1">Name: Sanjay Gupta</p>
+        <p class="text-secondary mb-1">Location: Mumbai, India</p>
+        <p class="text-secondary mb-1">Email: sanjay@example.com</p>
+      </div>
+
+    </div>
+
+    <!-- Bottom line -->
+    <div class="text-center border-top border-secondary pt-3 mt-3">
+      <small class="text-secondary">
+        © 2026 Sanjay Gupta | All Rights Reserved
+      </small>
+    </div>
+  </div>
+</footer>
+
+<!-- AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@3.0.0-beta.6/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1200, // animation duration in ms
+    once: true, // animate only once
+    easing: 'ease-in-out', // smooth animation
+  });
+</script>
+
+  </body>
+  </html>
